@@ -7,6 +7,12 @@ type IEvent interface {
 	Target()IEventDispatcher
 	setTarget(IEventDispatcher)
 }
+func NewEvent(name string,data interface {})IEvent{
+	e:=event{}
+	e.name=name
+	e.data=data
+	return &e
+}
 type event struct {
 	name string
 	data interface {}
@@ -24,9 +30,4 @@ func(this *event)Target()IEventDispatcher{
 func(this *event)setTarget(t IEventDispatcher){
 	this.target=t
 }
-func NewEvent(name string,data interface {})*event{
-	e:=event{}
-	e.name=name
-	e.data=data
-	return &e
-}
+
